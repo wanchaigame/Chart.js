@@ -1,0 +1,603 @@
+
+
+<!doctype html>
+<html lang="en">
+<head> 
+  <meta charset="UTF-8">
+  <title>chartjs-plugin-labels</title>
+  <link href='https://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://emn178.github.io/chartjs-plugin-labels/samples/demo/style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.min.js"></script>
+  <script type="text/javascript" src="https://emn178.github.io/chartjs-plugin-labels/src/chartjs-plugin-labels.js"></script>
+
+</head>
+<body>
+
+  <div id="body">
+    <div id="description">
+      <p>
+         ตัวอย่าง Chart.js
+      </p>
+
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADIEAAAAADYoy0BAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0T//xSrMc0AABNsSURBVHja7V19aF1FFj8vCVlbE+0HFqmJQgrRxpatyaYkS7Gu0sjSSLNbAtuNEBXTjQp929d/Vqr1o1vcf/pKAtXYJ7uGbVAIlpRNkU2wtSImJDYqukktm4ImValUxdS6lvea/WPuvLl3vu/He/nw/P7Jy9yZM+fe8949c2bmNyc2OwuIeYQCfARoEAQaBA2CQIOgQRBoEDQIAg2CBkGgQRBoEDQIAg2CBkGgQRY5imwqXX4wTBexz69/R37lx9cyJ8in4heLbwAA+OHu2VtJydLJgiFT3yVHVfJ04FtRXP3+6uOqNqJ+waDq24VZI2Zawtm8dkAlua2C1knWkZLaAVrSlyYlOslTB1Xygtxxsk7dRtQvGGZaTE8bX1noQxBokMXm1KNBz3WnbyGfKp7+y0Om2icqzf75+cNw2FYew841i8gg9g7+re4mTvbFu1LD5FPbflA8wFP7Z1sAAM6trOlU9VnaQz+lzqvkJevaFI+9tIe28nO/xS/yV/rS97XaSmEa5+AXYjFwI8gE+X5kB8hxVY+ZCegJpWdPVPdr+yT8BQ3oQxaFD6maflR9sSwRXJ0vbrm2hy+bTpK/N/9U9KS9JNqKYkXz0nL/+nxX/V0SAKDk7LIjdv14nsQrMJ4Xg0w/Wr5HE3gpDFJ1D9V91Qfk7+YLa+voNfK36dXRBuoFyN/EMO3rzK5qACh8TgzgqDyGxHBimHvnx7d55MpA27RVrF0FADBxkfadrNutaKN7ElMHy+bzKOv+F+7nSlr+p65d8e62QgCARIy78PruUFrsHlJdOVTP15qL8Rj6EAwMEfPklXW4sTuuutba8US/t+TAyQNcnfZGGDR00QUNqktM3sgWAIAT/3nuC/L/Te0nJr11P+zaOGiStwgMcvXSqPL2dgiuVqw7avFwZlqW7AX48k3matPjAAAfddWw1rMAAOk7RteRf8UZXNYTkQdQ+NwiNEh+ULgWAN4USsLJA3gdfQj6kMWAcyuB81MfdfF1xkiN5M/eIJs39r3rhH/ZXvvSTnjlBJPPrE6n/Utm8tiUJF9Ce2oqcko61foxLN20iA1S3VENAN7JtvtanSm6DvL/1jv9y7WdvCOBplk/D4YwDsHAEPEzNcih+lgsFovFxOWa6WRMA1LneEZ13W75p6nILc0bdVBJZOb28oNiH+55rnlokLKEbiNL/r9VbRWmzTVndomtzuyanZ2dTY+H61vXa5CFCHxloQ9BRDjsfas72Fq5QV4cNMs8xy16pHUe2FQwBHBlanB1drALoBjuTiWnMgBQ6XqJxc9kAKDbbt39uO2T6IbcbXJoiiRuaatobwQA6Oqn8pJ1mzcCALQ30om9vjQJFms6aR3qB1jwx0pSTp2ZlhIA+Ka3yTW5yM9lkVZTSSq3dqCrHwDg9AgtYfqpd6g0Fc2LX0h0QSIAAPQLJYNCSae3JDPBSlbdVpbwvxWcyJ3K8CWn63X6oQ9BH5JPZCbMJfmTE6zvOTNI7PNwm/BvaodJAIDilVROqiFV5a2TGE5U0Te6o9hZuNP9P0DBel5y+R5+MFDaI3egBU/WNnI3fpZKHm0o8nEv4Z5FbH+owCY30G9HTY/rW/sN5ILIo4GmyF/JPdCHYGCICOlDrn5/+H4/Iskms7H46ZHgan1237Er0dxg5yPk7+aNzlDWgV4/cTKRluy+DV736sffb/FKsoPm30+Ov+0Mzz/QbQnkvIx5MvDyg6W+dowTicczNqHT1MGse/YEcmNxce2Ponbg2MeCc+fkUfx+PQs0vQtUTD8qr7eX334q90m8fvz91g6QjUaH6tnW1COT83zYS7FsrOSofsOyDN5ZVHdgSOS5MOhDXi/6EEQ+fiHON7bbR23XYvaPZIPhSoseNJSZ7K+mVf5LstePh41+QTT2YZDCrW0WS/1sGs7xOD10FM+uiDxyvu6HXaUNqrpUzmhDKfUY1WUJr36FWwEAppPl1OtlvZ/g0TR+Uc13Z/rxuLGOtlr6BmzhNae6z5hNEk04Y7cipyb6qw8OoOhLy4YEcm14164HPdiAMUfUK5CyON3PQQR4cAAGhog8OvW/vXpemBx7eXnsfXntrn75esKPr8WfMvcVhKcu088GIlOKlnT8dckOgIsPP0XZwV3q1rs71jYCzP7qT9/mzSDn94sraC+NFwJA9XJ+ylDkqVNkTqjX4WQ8dfNAgvLUmX48T10m78yuyksAAKUNo1mftGzMNdQAgOQJ2AFwdX3qVaeggfk4wlNnvPf2QWgEuPZPNpMtysvfsPfZEuG5BxEj46kHAzeaiavqeHnvJUftVyCdHnpMdZCnjoFhdJDx1INhOhm4VTX71lOeenQ9RGoQxis3T8OVJ8RxeMlZAIDiF5POVNvERd6byHjqLFZRldjw1Bloq5WfAHh573SSUsZT56UwD6mWx9+v7MyUSAJDd+BlWpHTwd+Jcn4CzSB3LAaG6hVDdyCMK4YYGCIWkFOvn4Zpb4mZBx4MFjx1H2D6sTiTRhkiT/21519z+h7eV2DJqpLx8k/tV53QGsogZYn0b6k5JOxxIw/cD6jP6K80r0C+vPylcQAZT10iN6ufCB1HftZ614uMlz/bkqNfSHa/7HSuf8LZniwCzdj7zipthDx19CHoQ8zTImPZ6bLq5fBs+GmWsW8jvQetfh91qcKRYJ0p5eXPIJf/W5ONXMl2fxn4BaR1fbSk6Kxanpqnvq4Ptst7qh3Yey/5tOILuX4rmvscd3rgZI3qhJROXt75TTa7TnjeuyaMlvDy8zp14t1ms2Z7drpVwz3X8NS3W/SkOLRvafk259MBH5ofCnW/ImS8fPQhGBgi5qlBZLxy1fyonqdOIL6H1bz3uURmwny/OTTIyBY6KWZ6ozKUHGVTadbHMgOdXJydHdnCX2G7RHh5VD/1rhiZPAayS8TfLhZ8ZeErCzG3gaELlKdenvBu7v+6770HLF46hAcuQstT51/Sx6Uey9AqCZ1+5HH3K9WP9ql+WfvjvQcyCOOVe8+WmjrV9DvxHe39n/HA9Z5CdeX2DwAAMueaqvgrqfMpH/dBe1DLU/PoXQFitkcvoaNwLZUv8t4BSpbnMTCUhUYeg1idqPPL9lxPBnq10tbpV7Uai5vlS3jv6EMWvQ9xj7fpT9RUJ/ZIQYiD8nLGIc9kzkXTK19Xdr82T8vaIDKeeqKB8srFs0Ro7ZoG4khrB0bCfGOq1NcY05wvsQhcoalK1Ubk0fvRULzf1Hkqb6bFFHlZGOT6d0aEyLpcGyySMUhTzn/exz4mZ52UZktOdvsJNb0aU7jlYRyCgSE+ggXn1PU8dcoDZ1BzvG2g4pXbITUJgY+rZLxyGfJ1DKaNQR7XraSJ12jJmV2rbgMAKHdt9yd/dbzyBOWVv1stBHSOvD1+tLHH+NuMV77vCe+1couZBKpfwUNwAQDg4fXNzfat8xIYliUAMhPuaQf+wDF/vHJRXi41dw9ifLVy2i47sswZJKAP+TkGhjYQvxt+vi02rcNlerfuuzqoxjkxiIynruaesysiicz8Lv31GxsceeJEJJVXO7Ch3SvPZte7WmMdr9yBZLZWZOHbkPAsEDUdwV/vKt62es7XH6/cD31Al+FQhEiXCHO/SEfAwBAxD5y6f/y5/YoF5UDNK6fYfIEcGSaTN7/zqceCZTNg4wl+Mk8caYjbdNoqkvXy1hsH2YFjlAfOAi+HV26xIJqsI+e8MXl+QPVLDKl47wBLJ8kkO71fNS9fd7+R/ULss4zL85/bzMmKPHCRV54rOH2vMWucLc8Ee17oQxaDDxGnDvj84ukXvvqFdwLhytQ3vWaJupQnYq/TeUt1p+47WLZ4+9YBD8Gk72gK3aGQ7lbkL5sC5FfQZO/8pJIbr44cqu65/wWTPDV0U5TiCimB+xDMHftUciJZMYwOzc1kctHfnCwx/fGMqCuR5xe7h0xfwDBzxqyHYBP26EMwMETk4JUVhLctw72tZAVEzKceLKx8b7u5lsNBhyPrN9zsLs/yyluhZ14bpORoei/59FgjOxk068IVvO1tEoY4cYceeY4cmk99eJ+ZB147MFTmlsdwZXD0ZfP9UN2v7QLPIjHjlbdVvNTvvd9k3a6/y/u0CzRf6rdtbfULCbS5s1DdSn3F7teWe+a52EMkWdnRhyxOHxKIV/5139Qpx+ZPet/VcoyZDvUTQrXP7ru0Lt+P68Ovrr1g1m8snlODuHng9njvAUpQqG0cMRokMQymsX8nz3s/diWhXKNL1lVwudElOdz/5f+udn482mnSr6moJv+jrLlAliRklXPdS6Nxf2ezV5pyoV/YzeHoQzAwROT5lSXLWQ7gzjgTBpmJIguqQGI4EbPVj2bECSqPoqYToth3EnXaNyaZ8sD97eogu1jUu0Ts0tyJUO8SobtY/OyyEfXzk70Bd52gD0HMsQ+R8dSdfOU+0V8JGZDwyiff+IQMUyuD6mjiso/Fp1QrkvFgG7xFXj7J954Hg8h46n5Y6Wy9kbai+dQpPmni858zLHGc8u6O9kFenqgNn0+d4vRIokgdaFKeOpmVuv0D3d5K9RNQHwA3TwLDykvqtHlqwo7qytpGaAQwrb2L+dRt4O3z+neqc/RE0IcsRB+imw4IOxVummrIXq8Uy4L17bSujErvaBcDbCYXtalXVbswZCxy/gpAaQNZnWMlfG0xDGT5z6cOyjc5FBxUy9Mz31WaFnfwAwB+l43s7tQ6zIkP6eonk21iFxvaSW7YnWso+3DHPrr1M4qeV1+gzPqw8rK89y1+WoXhvaMPwcAQkdNXlshTZ+P60yG43ec3HfLdpue6i3eRT3Tnoh3st7Qdbrx6ydyaljy83rvhNgcG0fDK0zUdAG4eoTi3S1sXf2zuST0zzPKpl70CHqd++paU0yoJ5KyDvoeuHQQAuPgZc8JEizNxGraNanj0PLrjooPmNWXympuX5foXouOVOyMe7SRDsK3KSilGaasvkL8X43xr+WGDPI8efQj6kPx2R759hVuX7AgvRU+D4b7nK/1JVpa0znODMF75jXUw6r0mMrmzvPKhIzsAACqebnNy14qJ70Q5FCkun7rcA5lWJ1n+cwbRdwghsUWWeD4VoJjvXQvzGpY7y62ZZ83qimnu2C0Ez1eej7R5OvhZ0cQVQwwMEfPMhzAe+B9X3DPKz2VBfxQqqnnlNJ96GPjNf/5Yo0o/kk9drx/Jz55Dg7y3nRIAtgqHrlLnVjtwshsAIDUZbBsQ7yR18oi/+66auecZQ6I6d/7zINqwEpJPXV+X5Gef82GvMzytz4e8kqMA7gzPS/Zi2jzEwgkMKfhVb5737q+1Dl++SdJMrmhe6jlsWM+jj+aucmQQXT7w1g5KRitPEIKYOJov7pAcEMaFYMm63fzbVp1PvaGcK3Hrqgr2+uLbPOWDq5v2UJ+k5pWDsicWgtJP7IA1Kk+sEyJMih66wCuafOqyrZ+8PAq29VM8EE2tny4Q5uUFC6zRh6BTR4T0IT/c/Zunw3QRLJ/6gZN8lk5zPvUsT319rh7X1jVfO7lwn1m9Vcnk4rZWtEac8mj21iCHgLnfqeprMy1L9gIAFD5H/qc89Y+6apQ5zW146oxXTsEnimI8+tgj/KBD5KlTfN1FtUgrc+GGe1pzzjF0Hurrzhs0Mp66sQ7j0Q8F6wF9CPqQ3OPcSgjM6dbz1CnvlmyS/uHuT++iV6o75DUXpEHMWcQZ+M34LL84xYlK9WnQ6p5seOqM955uL1wL8Oldrq2fHoNkJtgV2ueNyohEl++d8dTV97B0U8QGyeY/N0Kkx9D84i6DaCUoEzbematvZ02HsyQ8qhxlafK9izz1rDwGo49EH4KBISJyg+jzn6ta0fznsZifs6XV/dhN2RVVxWKxmOiraL53kZxw+UHaA4tCEsN+73ZB/kKOTKon2Wzys5PJRd3knX1eQ3xlIdAgGBha4srU4Gq+bF3fmu1RytMNyHOFOeSph8M3vU17xMCQeH66R5DxyhlP/eaf7OWpA1adPJ6N3t5omjqU5VN3+7iShfAL0YFOdLh55UFSTtr0IYLw6F0YtJd2Gk+2Rh8SGPbZ2GV1wvHUlfhD5hmTLn7ubQEZhM8v7uaVi296fiMBz1N353uP7Qcw8dT5vm5qh0kAgEOfJYQM60TedNI+ear7gDU1U3+e+xDGK6cYi9uf7OnJ977FK0/GUxfOjxMWmCmPHnzy03mI+d7Rh2BgiFgEgeF3O/+hIUqbWOTafO/Pz+V99fZCb14MUvaKbG+gPVi+8pIEAMDlOxIpdW0+P7tbD0gY8r03sECzxhC9sPznNjx6kZdPR3702fT2ivnZSxK5+YWMl4X87gTjqwutElH2SfOf+5S3R9lPb5D7RR+y0H2I9TkH3T6kBMxXbp+u0d8d2fHoVZz22OfXv6OqG3mmz1L7TZE92sCQy1euJjTr8pWLPHWRRW4O5CSpYR0evQ4scKV9MjrCiPJ+Z2Bepc1TY+0qVTK7lK9F0mQ9OVQztSd/upMg8ngmFcmzRB+CgSECDbKAYJVPPdwJUnTUcfX7q4+r6hS/WHyD/76pgxSzu4utaP7zYKMssxbX6q+sMd+veZQVMME9Al9ZaBAEGgSBBkGDINAgaBAEGgQNgkCDoEEQaBA0CAINgkCDLBj8H26r9EYCfeJVAAAAAElFTkSuQmCC">
+    </div>
+    <div class="charts">
+      <div class="row">
+        <div class="chart-wrapper">
+          <canvas id="pie-canvas1"></canvas>
+        </div>
+        <div class="chart-wrapper">
+          <canvas id="doughnut-canvas1"></canvas>
+        </div>
+        <div class="code">
+          <pre class="brush: js">
+            {
+              labels: {
+                render: 'label'
+              }
+            }
+          </pre>
+        </div>
+      </div>
+      <div class="row">
+        <div class="chart-wrapper">
+          <canvas id="pie-canvas2"></canvas>
+        </div>
+        <div class="chart-wrapper">
+          <canvas id="doughnut-canvas2"></canvas>
+        </div>
+        <div class="code">
+          <pre class="brush: js">
+            {
+              labels: {
+                render: 'percentage',
+                fontColor: ['green', 'white', 'red'],
+                precision: 2
+              }
+            }
+          </pre>
+        </div>
+      </div>
+      <div class="row">
+        <div class="chart-wrapper">
+          <canvas id="pie-canvas3"></canvas>
+        </div>
+        <div class="chart-wrapper">
+          <canvas id="doughnut-canvas3"></canvas>
+        </div>
+        <div class="code">
+          <pre class="brush: js">
+            {
+              labels: {
+                render: &#39;percentage&#39;,
+                fontColor: function (data) {
+                  var rgb = hexToRgb(data.dataset.backgroundColor[data.index]);
+                  var threshold = 140;
+                  var luminance = 0.299 * rgb.r + 0.587 * rgb.g + 0.114 * rgb.b;
+                  return luminance &gt; threshold ? &#39;black&#39; : &#39;white&#39;;
+                },
+                precision: 2
+              }
+            }
+          </pre>
+        </div>
+      </div>
+      <div class="row">
+        <div class="chart-wrapper">
+          <canvas id="pie-canvas4"></canvas>
+        </div>
+        <div class="chart-wrapper">
+          <canvas id="doughnut-canvas4"></canvas>
+        </div>
+        <div class="code">
+          <pre class="brush: js">
+            {
+              labels: {
+                render: 'value',
+                fontSize: 14,
+                fontStyle: 'bold',
+                fontColor: '#000',
+                fontFamily: '"Lucida Console", Monaco, monospace'
+              }
+            }
+          </pre>
+        </div>
+      </div>
+      <div class="row">
+        <div class="chart-wrapper">
+          <canvas id="pie-canvas5"></canvas>
+        </div>
+        <div class="chart-wrapper">
+          <canvas id="doughnut-canvas5"></canvas>
+        </div>
+        <div class="code">
+          <pre class="brush: js">
+            {
+              labels: {
+                render: function (args) {
+                  return '$' + args.value;
+                },
+                arc: true
+              }
+            }
+          </pre>
+        </div>
+      </div>
+      <div class="row">
+        <div class="chart-wrapper">
+          <canvas id="pie-canvas6"></canvas>
+        </div>
+        <div class="chart-wrapper">
+          <canvas id="doughnut-canvas6"></canvas>
+        </div>
+        <div class="code">
+          <pre class="brush: js">
+            {
+              labels: {
+                render: 'label',
+                arc: true,
+                position: 'border'
+              }
+            }
+          </pre>
+        </div>
+      </div>
+      <div class="row">
+        <div class="chart-wrapper">
+          <canvas id="pie-canvas7"></canvas>
+        </div>
+        <div class="chart-wrapper">
+          <canvas id="doughnut-canvas7"></canvas>
+        </div>
+        <div class="code">
+          <pre class="brush: js">
+            {
+              labels: {
+                render: 'label',
+                fontColor: '#000',
+                position: 'outside'
+              }
+            }
+          </pre>
+        </div>
+      </div>
+      <div class="row">
+        <div class="chart-wrapper">
+          <canvas id="pie-canvas8"></canvas>
+        </div>
+        <div class="chart-wrapper">
+          <canvas id="doughnut-canvas8"></canvas>
+        </div>
+        <div class="code">
+          <pre class="brush: js">
+            {
+              labels: {
+                render: 'label',
+                arc: true,
+                fontColor: '#000',
+                position: 'outside'
+              }
+            }
+          </pre>
+        </div>
+      </div>
+      <div class="row">
+        <div class="chart-wrapper">
+          <canvas id="pie-canvas10"></canvas>
+        </div>
+        <div class="chart-wrapper">
+          <canvas id="doughnut-canvas10"></canvas>
+        </div>
+        <div class="code">
+          <pre class="brush: js">
+            {
+              labels: {
+                render: 'image',
+                images: [
+                  { src: 'taiwan.png', width: 32, height: 22 },
+                  { src: 'jpan.png', width: 32, height: 22 },
+                  { src: 'usa.png', width: 32, height: 22 }
+                ]
+              }
+            }
+          </pre>
+        </div>
+      </div>
+      <div class="row">
+        <div class="chart-wrapper">
+          <canvas id="pie-canvas11"></canvas>
+        </div>
+        <div class="chart-wrapper">
+          <canvas id="doughnut-canvas11"></canvas>
+        </div>
+        <div class="code">
+          <pre class="brush: js">
+            {
+              labels: [
+                {
+                  render: 'label',
+                  position: 'outside'
+                },
+                {
+                  render: 'percentage'
+                }
+              ]
+            }
+          </pre>
+        </div>
+      </div>
+      <div class="row">
+        <h2>Polar Area</h2>
+        <div class="chart-wrapper">
+          <canvas id="polarArea-canvas1"></canvas>
+        </div>
+        <div class="code">
+          <pre class="brush: js">
+            {
+              labels: [
+                {
+                  render: 'label',
+                  fontColor: '#000',
+                  position: 'outside'
+                },
+                {
+                  render: 'percentage',
+                  fontColor: ['green', 'white', 'red'],
+                  precision: 2
+                }
+              ]
+            }
+          </pre>
+        </div>
+      </div>
+      <div class="row">
+        <h2>Bar Chart</h2>
+        <div class="chart-wrapper">
+          <canvas id="bar-canvas1"></canvas>
+        </div>
+        <div class="code">
+          <pre class="brush: js">
+            {
+              labels: {
+                render: 'value'
+              }
+            }
+          </pre>
+        </div>
+      </div>
+      <div class="row">
+        <div class="chart-wrapper">
+          <canvas id="bar-canvas2"></canvas>
+        </div>
+        <div class="code">
+          <pre class="brush: js">
+            {
+              labels: {
+                render: 'percentage'
+              }
+            }
+          </pre>
+        </div>
+      </div>
+      <div class="row">
+        <div class="chart-wrapper">
+          <canvas id="bar-canvas3"></canvas>
+        </div>
+        <div class="code">
+          <pre class="brush: js">
+            {
+              labels: {
+                render: 'value'
+              }
+            }
+          </pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function hexToRgb(hex) {
+      // Expand shorthand form (e.g. "03F") to full form (e.g. "0033FF")
+      var shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
+      hex = hex.replace(shorthandRegex, function (m, r, g, b) {
+        return r + r + g + g + b + b;
+      });
+
+      var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+      return result ? {
+        r: parseInt(result[1], 16),
+        g: parseInt(result[2], 16),
+        b: parseInt(result[3], 16)
+      } : null;
+    }
+
+    function createChart(id, type, options) {
+      var data = {
+        labels: ['January', 'February', 'March'],
+        datasets: [
+          {
+            label: 'My First dataset',
+            data: [50445, 33655, 15900],
+            backgroundColor: [
+              '#FF6384',
+              '#36A2EB',
+              '#FFCE56'
+            ]
+          }
+        ]
+      };
+
+      new Chart(document.getElementById(id), {
+        type: type,
+        data: data,
+        options: options
+      });
+    }
+
+    ['pie', 'doughnut'].forEach(function (type) {
+      createChart(type + '-canvas1', type, {
+        responsive: true,
+        maintainAspectRatio: false,
+        legend: {
+          display: false
+        },
+        plugins: {
+          labels: {
+            render: 'label'
+          }
+        }
+      });
+      createChart(type + '-canvas2', type, {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          labels: {
+            render: 'percentage',
+            fontColor: ['green', 'white', 'red'],
+            precision: 2
+          }
+        }
+      });
+      createChart(type + '-canvas3', type, {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          labels: {
+            render: 'percentage',
+            fontColor: function (args) {
+              var rgb = hexToRgb(args.dataset.backgroundColor[args.index]);
+              var threshold = 140;
+              var luminance = 0.299 * rgb.r + 0.587 * rgb.g + 0.114 * rgb.b;
+              return luminance > threshold ? 'black' : 'white';
+            },
+            precision: 2
+          }
+        }
+      });
+      createChart(type + '-canvas4', type, {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          labels: {
+            render: 'value',
+            fontSize: 14,
+            fontStyle: 'bold',
+            fontColor: '#000',
+            fontFamily: '"Lucida Console", Monaco, monospace'
+          }
+        }
+      });
+      createChart(type + '-canvas5', type, {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          labels: {
+            render: function (args) {
+              return '$' + args.value;
+            },
+            arc: true
+          }
+        }
+      });
+      createChart(type + '-canvas6', type, {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          labels: {
+            render: 'label',
+            arc: true,
+            position: 'border'
+          }
+        }
+      });
+      createChart(type + '-canvas7', type, {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          labels: {
+            render: 'label',
+            fontColor: '#000',
+            position: 'outside'
+          }
+        }
+      });
+      createChart(type + '-canvas8', type, {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          labels: {
+            render: 'label',
+            arc: true,
+            fontColor: '#000',
+            position: 'outside'
+          }
+        }
+      });
+      createChart(type + '-canvas10', type, {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          labels: {
+            render: 'image',
+            images: [
+              { src: 'taiwan.png', width: 32, height: 22 },
+              { src: 'jpan.png', width: 32, height: 22 },
+              { src: 'usa.png', width: 32, height: 22 }
+            ]
+          }
+        }
+      });
+      createChart(type + '-canvas11', type, {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          labels: [
+            {
+              render: 'label',
+              position: 'outside'
+            },
+            {
+              render: 'percentage'
+            }
+          ]
+        }
+      });
+    });
+    createChart('polarArea-canvas1', 'polarArea', {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        labels: [
+          {
+            render: 'label',
+            fontColor: '#000',
+            position: 'outside'
+          },
+          {
+            render: 'percentage',
+            fontColor: ['green', 'white', 'red'],
+            overlap: false,
+            precision: 2
+          }
+        ]
+      }
+    });
+
+    new Chart(document.getElementById('bar-canvas1'), {
+      type: 'bar',
+      data: {
+        labels: ['January', 'February', 'March'],
+        datasets: [
+          {
+            label: 'My First dataset',
+            data: [50445, 33655, 15900],
+            backgroundColor: [
+              '#FF6384',
+              '#36A2EB',
+              '#FFCE56'
+            ]
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          labels: {
+            render: 'value'
+          }
+        }
+      }
+    });
+
+    new Chart(document.getElementById('bar-canvas2'), {
+      type: 'bar',
+      data: {
+        labels: ['January', 'February', 'March'],
+        datasets: [
+          {
+            label: 'My First dataset',
+            data: [50445, 33655, 15900],
+            backgroundColor: [
+              '#FF6384',
+              '#FF6384',
+              '#FF6384'
+            ]
+          },
+          {
+            label: 'My Second dataset',
+            data: [40445, 23655, 35900],
+            backgroundColor: [
+              '#36A2EB',
+              '#36A2EB',
+              '#36A2EB'
+            ]
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          labels: {
+            render: 'percentage'
+          }
+        }
+      }
+    });
+
+    new Chart(document.getElementById('bar-canvas3'), {
+      type: 'bar',
+      data: {
+        labels: ['January', 'February', 'March'],
+        datasets: [
+          {
+            label: 'My First dataset',
+            data: [50445, 33655, 15900],
+            backgroundColor: [
+              '#FF6384',
+              '#FF6384',
+              '#FF6384'
+            ]
+          },
+          {
+            label: 'My Second dataset',
+            data: [40445, 23655, 35900],
+            backgroundColor: [
+              '#36A2EB',
+              '#36A2EB',
+              '#36A2EB'
+            ]
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          labels: {
+            render: 'value'
+          }
+        },
+        scales: {
+          xAxes: [{
+            stacked: true,
+          }],
+          yAxes: [{
+            stacked: true
+          }]
+        }
+      }
+    });
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/SyntaxHighlighter/3.0.83/styles/shCore.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/SyntaxHighlighter/3.0.83/styles/shThemeDefault.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/SyntaxHighlighter/3.0.83/scripts/shCore.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/SyntaxHighlighter/3.0.83/scripts/shBrushJScript.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/SyntaxHighlighter/3.0.83/scripts/shBrushXml.js"></script>
+  <script>
+    SyntaxHighlighter.all();
+  </script>
+</body>
+</html>
